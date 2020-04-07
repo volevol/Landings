@@ -307,11 +307,57 @@ template {
   box-sizing: border-box; }
 
 body {
-  font-family: 'Lato', sans-serif; }
+  font-family: 'Lato', sans-serif;
+  color: #414141; }
 
 .section-inner {
   width: 1180px;
   margin: 0 auto; }
+
+.description-item__icon {
+  margin-bottom: 20px;
+  position: relative; }
+  .description-item__icon img {
+    width: 70px;
+    height: auto; }
+
+.description-item__title {
+  margin-bottom: 14px;
+  font-size: 18px;
+  line-height: 22px;
+  font-weight: bold; }
+
+.description-item__text {
+  font-size: 16px;
+  line-height: 28px;
+  font-weight: 300;
+  color: #6c6c6c; }
+
+.btn-main {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 16px;
+  margin: 0;
+  padding: 16px 20px;
+  outline: none;
+  border-radius: 4px;
+  cursor: pointer;
+  text-decoration: none;
+  border: none;
+  background: linear-gradient(to right, #fe985b, #fe4fa7);
+  color: #fff; }
+
+.btn-secondary {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 16px;
+  margin: 0;
+  padding: 16px 20px;
+  outline: none;
+  border-radius: 4px;
+  cursor: pointer;
+  text-decoration: none;
+  border: 1px solid #414141;
+  background: #fff;
+  color: #414141; }
 
 .section-header {
   color: #fff;
@@ -375,13 +421,101 @@ body {
           width: 100%; }
           .section-header-wrapper__form-input input::placeholder {
             color: #fff; }
-      .section-header-wrapper__form-button button {
-        font-family: 'Montserrat', sans-serif;
+
+.section-promo {
+  padding-top: 120px;
+  padding-bottom: 120px; }
+
+.section-promo-1 {
+  display: flex; }
+  .section-promo-1__content, .section-promo-1__video {
+    flex-basis: 50%; }
+  .section-promo-1__content {
+    padding-right: 90px; }
+    .section-promo-1__content .title {
+      font-size: 36px;
+      line-height: 51px;
+      font-weight: bold;
+      margin-bottom: 56px; }
+    .section-promo-1__content .description-item {
+      margin-top: 28px; }
+  .section-promo-1__video img {
+    width: 100%;
+    height: auto;
+    border-radius: 5px; }
+
+.section-promo-2 {
+  display: flex;
+  padding-top: 86px;
+  margin-top: 120px;
+  border-top: 1px solid #e2e2e2;
+  text-align: center; }
+  .section-promo-2 .description-item + .description-item {
+    margin-left: 40px; }
+
+.section-founder {
+  background-color: #f6fafd;
+  padding-top: 34px; }
+  .section-founder .section-inner {
+    display: flex; }
+  .section-founder__img {
+    align-self: flex-end; }
+  .section-founder__content {
+    align-self: center;
+    padding-left: 100px; }
+    .section-founder__content-text {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 24px;
+      line-height: 40px; }
+    .section-founder__content-name {
+      font-size: 24px;
+      line-height: 29px;
+      font-weight: bold; }
+    .section-founder__content-post {
+      font-size: 20px;
+      line-height: 29 [x]; }
+
+.section-plans {
+  padding-top: 120px;
+  padding-bottom: 120px;
+  text-align: center; }
+  .section-plans__title {
+    font-size: 36px;
+    line-height: 51px;
+    font-weight: bold; }
+  .section-plans__subtitle {
+    font-size: 16px;
+    line-height: 28px;
+    font-weight: 300;
+    width: 50%;
+    margin: 0 auto 80px; }
+  .section-plans__list {
+    display: flex;
+    justify-content: center; }
+    .section-plans__list-item {
+      flex-basis: 370px;
+      padding: 60px 45px; }
+      .section-plans__list-item_title {
+        font-size: 14px;
+        line-height: 17px;
+        font-weight: bold;
+        text-transform: uppercase;
+        margin-bottom: 26px; }
+      .section-plans__list-item_price {
+        margin-bottom: 26px; }
+        .section-plans__list-item_price .prefix {
+          color: #f34fa7;
+          font-size: 72px;
+          line-height: 86px;
+          font-weight: bold; }
+        .section-plans__list-item_price .postfix {
+          font-size: 14px;
+          line-height: 17px;
+          font-weight: bold; }
+      .section-plans__list-item_description {
         font-size: 16px;
-        margin: 0;
-        padding: 16px 20px;
-        border: none;
-        background: linear-gradient(to right, #fe985b, #fe4fa7);
-        outline: none;
-        border-radius: 4px;
-        color: #fff; }
+        line-height: 28px;
+        font-weight: 300;
+        margin-bottom: 50px; }
+      .section-plans__list-item.active {
+        background-color: #f6fafd; }
