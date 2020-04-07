@@ -1,17 +1,22 @@
 @import 'normalize.scss';
 
 // --- Mixins ---
-@mixin font-lato {
+@mixin font-main {
     font-family: 'Lato', sans-serif;
 }
 
-@mixin font-montserrat {
+@mixin font-secondary {
     font-family: 'Montserrat', sans-serif;
 }
 // --- /Mixins ---
 
 // --- Variables ---
 $color-white: #fff;
+$color-main: #414141;
+$color-pink: #fe4fa7;
+$color-yellow: #fe985b;
+$color-text: #464646;
+$color-bg: #f6fafd;
 // --- /Variables ---
 
 // --- Common ---
@@ -20,9 +25,9 @@ $color-white: #fff;
 }
 
 body {
-    @include font-lato;
+    @include font-main;
 
-    color: #414141;
+    color: $color-main;
 }
 
 .section-outer {}
@@ -56,7 +61,7 @@ body {
 }
 
 @mixin start-button {
-    @include font-montserrat;
+    @include font-secondary;
 
     font-size: 16px;
     margin: 0;
@@ -71,16 +76,35 @@ body {
     @include start-button;
 
     border: none;
-    background: linear-gradient(to right, #fe985b, #fe4fa7);
+    background: linear-gradient(to right, $color-yellow, $color-pink);
     color: $color-white;
+
+    &:hover {
+    background: linear-gradient(to right, $color-pink, $color-yellow);
+
+    }
 }
 
 .btn-secondary {
     @include start-button;
 
-    border: 1px solid #414141;
+    border: 1px solid $color-main;
     background: $color-white;
-    color: #414141;
+    color: $color-main;
+    transition: .2s;
+
+    &:hover {
+        color: $color-pink;
+        border-color: $color-pink;
+    }
+}
+
+.btn-free {
+    @include start-button;
+
+    border: none;
+    background: $color-white;
+    color: $color-main;
 }
 
 
@@ -90,7 +114,7 @@ body {
 
 // --- header --- 
 .section-header {
-    color: #fff;
+    color: $color-white;
     background: url('../img/bg-header.jpg') no-repeat 50% 50%;
     background-size: cover;
     position: relative;
@@ -140,7 +164,7 @@ body {
             margin-bottom: 16px;
         }
         &__subtitle {
-            @include font-montserrat;
+            @include font-secondary;
 
             font-size: 18px;
             line-height: 32px;
@@ -155,7 +179,7 @@ body {
                 padding-right: 40px;
 
                 input {
-                    @include font-montserrat;
+                    @include font-secondary;
 
                     border: none;
                     background: rgba(255, 255, 255, .25);
@@ -166,9 +190,14 @@ body {
                     outline: none;
                     border-radius: 4px;
                     width: 100%;
+                    transition: .2s;
 
                     &::placeholder {
                         color: $color-white;
+                    }
+
+                    &:focus {
+                        background: rgba(255, 255, 255, .5);
                     }
                 }
             }
@@ -231,7 +260,7 @@ body {
 
 // --- founder --- 
 .section-founder {
-    background-color: #f6fafd;
+    background-color: $color-bg;
     padding-top: 34px;
 
     .section-inner {
@@ -246,7 +275,7 @@ body {
         padding-left: 100px;
 
         &-text {
-            @include font-montserrat;
+            @include font-secondary;
 
             font-size: 24px;
             line-height: 40px;
@@ -302,7 +331,7 @@ body {
                 margin-bottom: 26px;
 
                 .prefix {
-                    color: #f34fa7;
+                    color: $color-pink;
                     font-size: 72px;
                     line-height: 86px;
                     font-weight: bold;
@@ -322,7 +351,7 @@ body {
             &_button {}
 
             &.active {
-                background-color: #f6fafd;
+                background-color: $color-bg;
             }
         }
     }
@@ -331,11 +360,102 @@ body {
 
 // --- free --- 
 .section-free {
+    text-align: center;
+    color: $color-white;
+    background: linear-gradient(to right, $color-yellow, $color-pink);
+    padding-top: 120px;
+    padding-bottom: 120px;
+
+    &__title {
+        font-size: 66px;
+        line-height: 60px;
+        font-weight: bold;
+        margin-bottom: 26px;
+    }
+    &__description {
+        @include font-secondary;
+
+        font-size: 20px;
+        line-height: 30px;
+        width: 50%; 
+        margin: 0 auto 40px;
+    }
+    &__button {}
 }
 // --- /free --- 
 
 // --- footer --- 
 .section-footer {
+    padding-top: 80px;
+    padding-bottom: 80px;
+
+    &__logo {
+        text-align: center;
+        font-size: 24px;
+        line-height: 29px;
+        font-weight: bold;
+        margin-bottom: 30px;;
+    }
+    &__nav {
+        display: flex;
+        justify-content: center;
+        margin: 0 0 75px;
+        padding: 0;
+        list-style: none;
+
+        li {
+            & + li {
+                margin-left: 60px;
+            }
+
+            a {
+                font-size: 24px;
+                line-height: 20px;
+                font-weight: bold;
+                text-transform: uppercase;
+                color: $color-text;
+                text-decoration: none;
+                transition: .2s;
+               
+                &.active,
+                &:hover {
+                    color: $color-pink;
+                }
+            }
+        }
+    }
+    &__copyright_and_links {
+        @include font-secondary;
+
+        display: flex;
+        justify-content: space-between;
+        font-size: 14px;
+        line-height: 20px;
+        width: 60%;
+        margin: 0 auto;
+    }
+}
+
+.helper-link {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+
+    li {
+        & + li {
+            margin-left: 20px;
+        }
+
+        a {
+            color: $color-text;
+            text-decoration: none;
+
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+    }
 }
 // --- /footer --- 
 
