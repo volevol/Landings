@@ -17,6 +17,16 @@ $color-pink: #fe4fa7;
 $color-yellow: #fe985b;
 $color-text: #464646;
 $color-bg: #f6fafd;
+
+$screen-sm: 576px;
+$screen-md: 768px;
+$screen-lg: 992px;
+$screen-xl: 1200px;
+
+$screen-xs-max: 575px;
+$screen-sm-max: 767px;
+$screen-md-max: 991px;
+$screen-lg-max: 1199px;
 // --- /Variables ---
 
 // --- Common ---
@@ -30,8 +40,13 @@ body {
     color: $color-main;
 }
 
+.section-outer {
+    padding-right: 20px;
+    padding-left: 20px;
+}
+
 .section-inner {
-    width: 1180px;
+    max-width: 1180px;
     margin: 0 auto;
 }
 
@@ -175,7 +190,6 @@ body {
 
             &-input {
                 flex: 1;
-                padding-right: 40px;
 
                 input {
                     @include font-secondary;
@@ -200,7 +214,29 @@ body {
                     }
                 }
             }
-            &-button {}
+            
+            @media (min-width: $screen-sm) {
+                &-input {
+                    margin-right: 40px;
+                }
+            }
+
+            @media (max-width: $screen-xs-max) {
+                flex-direction: column;
+
+                &-input {
+                    margin-bottom: 10px;
+                }
+
+                &-button {
+                    flex: 1;
+
+                    .btn-main {
+                        display: block;
+                        width: 100%;
+                    }
+                }
+            }
         }
     }
 }
@@ -221,8 +257,6 @@ body {
     }
 
     &__content {
-        padding-right: 90px;
-
         .title {
             font-size: 36px;
             line-height: 51px;
@@ -241,6 +275,21 @@ body {
             border-radius: 5px;
         }
     }
+
+    @media (max-width: $screen-sm-max) {
+        flex-direction: column;
+
+        &__video {
+            order: -1;
+            margin-bottom: 20px;
+        }
+    }
+
+    @media (min-width: $screen-md) {
+        &__content {
+            padding-right: 90px;
+        }
+    }
 }
 
 .section-promo-2 {
@@ -250,8 +299,18 @@ body {
     border-top: 1px solid #e2e2e2;
     text-align: center;
 
-    .description-item + .description-item{
-        margin-left: 40px;
+    @media (min-width: $screen-sm) {
+        .description-item + .description-item {
+            margin-left: 40px;
+        }
+    }
+
+    @media (max-width: $screen-xs-max) {
+        flex-direction: column;
+
+        .description-item + .description-item {
+            margin-top: 40px;
+        }
     }
 }
 
@@ -266,13 +325,7 @@ body {
         display: flex;
     }
 
-    &__img {
-        align-self: flex-end;
-    }
     &__content {
-        align-self: center;
-        padding-left: 100px;
-
         &-text {
             @include font-secondary;
 
@@ -286,8 +339,36 @@ body {
         }
         &-post {
             font-size: 20px;
-            line-height: 29[x
-            ];
+            line-height: 29px;
+        }
+    }
+
+    @media (max-width: $screen-sm-max) {
+        .section-inner {
+            flex-direction: column;
+        }
+
+        
+        &__img {
+            img {
+                max-width: 100%;
+            }
+        }
+
+        &__content {
+            order: -1;
+            margin-bottom: 40px;
+        }
+    }
+
+    @media (min-width: $screen-sm) {
+        &__img {
+            align-self: flex-end;
+        }
+
+        &__content {
+            align-self: center;
+            padding-left: 50px;
         }
     }
 }
@@ -305,11 +386,10 @@ body {
         font-weight: bold;
     }
     &__subtitle {
+        margin-bottom: 80px;
         font-size: 16px;
         line-height: 28px;
         font-weight: 300;
-        width: 50%;
-        margin: 0 auto 80px;
     }
     &__list {
         display: flex;
@@ -352,6 +432,17 @@ body {
             &.active {
                 background-color: $color-bg;
             }
+        }  
+        @media (max-width: $screen-xs-max) {
+            flex-direction: column;
+        }  
+    }
+
+    @media (min-width: $screen-sm) {
+        &__subtitle {
+            width: 50%;
+            margin-right: auto;
+            margin-left: auto;
         }
     }
 }
@@ -376,10 +467,18 @@ body {
 
         font-size: 20px;
         line-height: 30px;
-        width: 50%; 
         margin: 0 auto 40px;
     }
-    &__button {}
+    
+    // @media (max-width: $screen-sm-max) {
+
+    // }
+
+    @media (min-width: $screen-lg) {
+        &__description{
+            width: 50%;
+        }
+    }
 }
 // --- /free --- 
 
@@ -403,12 +502,8 @@ body {
         list-style: none;
 
         li {
-            & + li {
-                margin-left: 60px;
-            }
-
             a {
-                font-size: 24px;
+                font-size: 14px;
                 line-height: 20px;
                 font-weight: bold;
                 text-transform: uppercase;
@@ -422,21 +517,48 @@ body {
                 }
             }
         }
+
+        @media (max-width: $screen-xs-max) {
+            flex-direction: column;
+            text-align: center;
+
+            li {
+                & + li {
+                    margin-top: 10px;
+                }
+            }
+        }
+
+        @media (min-width: $screen-sm) {
+            li {
+                & + li {
+                    margin-left: 60px;
+                }
+            }    
+        }
     }
     &__copyright_and_links {
         @include font-secondary;
 
         display: flex;
         justify-content: space-between;
+        align-items: center;
         font-size: 14px;
         line-height: 20px;
-        width: 60%;
-        margin: 0 auto;
+
+        @media (min-width: $screen-xl) {
+            width: 60%;
+            margin: 0 auto;
+        }
+
+        @media (max-width: $screen-xs-max) {
+            flex-direction: column;
+            text-align: center;
+        }
     }
 }
 
 .helper-link {
-    margin: 0;
     padding: 0;
     list-style: none;
     display: flex;
@@ -454,6 +576,15 @@ body {
                 text-decoration: underline;
             }
         }
+    }
+
+    @media (max-width: $screen-sm-max) {
+        display: inline-flex;
+        margin-top: 20px;
+    }
+
+    @media (min-width: $screen-md) {
+        display: flex;
     }
 }
 // --- /footer --- 
